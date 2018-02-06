@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# This is used by the pytest suite to reset git state.
+run_python() {
+	fn_name="$1"
+	python -c 'from helpers.py import ${fn_name}; ${fn_name}()'
+}
 
 reinit_git() {
 	git init

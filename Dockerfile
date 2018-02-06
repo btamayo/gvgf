@@ -1,4 +1,4 @@
-FROM btamayo/bats:latest
+FROM btamayo/bash-test:latest
 
 # Install additional deps
 RUN mkdir -p app

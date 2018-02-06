@@ -34,17 +34,18 @@ ln -sf "$PWD/git_flow_cfg_test" "$PWD/run_dir/git_flow_cfg_test"
 if [ "$DOCKER_ENV" = "1" ]; then
     # Git Flow
     echo "Inside docker container"
-    
+	echo "
+	alias gffs='git flow feature start'
+	alias gfff='git flow feature finish'
+	alias gfrs='git flow release start'
+	alias gfrf='git flow release finish'
+	alias gfhs='git flow hotfix start'
+	alias gfhf='git flow hotfix finish'
+	alias gfbs='git flow bugfix start'
+	alias gfbf='git flow bugfix finish'
+	alias gv='gitversion'" >> aliases.sh
+	source ./aliases.sh
+	hash -r
 fi
-echo "
-alias gffs='git flow feature start'
-alias gfff='git flow feature finish'
-alias gfrs='git flow release start'
-alias gfrf='git flow release finish'
-alias gfhs='git flow hotfix start'
-alias gfhf='git flow hotfix finish'
-alias gfbs='git flow bugfix start'
-alias gfbf='git flow bugfix finish'
-alias gv='gitversion'" >> aliases.sh
-source ./aliases.sh
-hash -r
+
+bats

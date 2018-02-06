@@ -24,8 +24,11 @@ def for_all_methods(decorator):
 
 def echo(func):
     def echo_func(*func_args, **func_kwargs):
-        print('\nStart func: {}, args: {}, kwargs: {}'.format(func.__name__, func_args, func_kwargs))
-        return func(*func_args, **func_kwargs)
+        # print('\nStart func: {}, args: {}, kwargs: {}'.format(func.__name__, func_args, func_kwargs))
+        ret_val = func(*func_args, **func_kwargs)
+        if ret_val:
+            print ret_val
+        return ret_val
     return echo_func
 
 
